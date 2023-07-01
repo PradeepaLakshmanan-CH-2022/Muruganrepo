@@ -1,14 +1,18 @@
 version: 0.0
 os: windows
 files:
-  - source: .
-    destination:  C:\Helloworldapp
+  - source: /
+    destination: C:\inetpub\wwwroot
 hooks:
   BeforeInstall:
-    - location: scripts\install-iis.ps1
+    - location: scripts/install_dependencies.ps1
       timeout: 300
+      runas: Administrator
+  AfterInstall:
+    - location: scripts/build_and_publish.ps1
+      timeout: 300
+      runas: Administrator
   ApplicationStart:
-    - location: scripts\start-webapi.ps1
+    - location: scripts/start_server.ps1
       timeout: 300
-
- 
+      runas: Administrator
