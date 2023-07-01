@@ -1,0 +1,16 @@
+version: 0.0
+os: windows
+files:
+  - source: /
+    destination:  C:\Helloworldapp
+hooks:
+  BeforeInstall:
+    - location: scripts\install-iis.ps1
+      timeout: 300
+  ApplicationStart:
+    - location: scripts\start-webapi.ps1
+      timeout: 300
+
+ 
+
+ C:\Helloworldapp
