@@ -1,2 +1,2 @@
-# Stop any running instances of the console application
-Stop-Process -Name PipelineTesting -Force -ErrorAction SilentlyContinue
+# Install Internet Information Services (IIS)
+Install-WindowsFeature Web-Server

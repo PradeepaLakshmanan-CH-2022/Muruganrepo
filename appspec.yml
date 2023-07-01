@@ -1,11 +1,14 @@
 version: 0.0
 os: windows
 files:
-  - source: .
+  - source: /
     destination: C:\Helloworldapp
 hooks:
   BeforeInstall:
     - location: scripts/before-install.ps1
+      timeout: 300
+  AfterInstall:
+    - location: scripts/after-install.ps1
       timeout: 300
   ApplicationStart:
     - location: scripts/application-start.ps1

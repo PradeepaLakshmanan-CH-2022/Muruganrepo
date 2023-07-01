@@ -1,4 +1,2 @@
-# Start the console application
-Start-Process -FilePath "C:\Helloworldapp\PipelineTesting"
-
-
+# Start the IIS service
+Start-Service -Name W3SVC
