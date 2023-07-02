@@ -1,15 +1,17 @@
 version: 0.0
 os: windows
 files:
-  - source: /
-    destination: C:\Helloworldapp
+  - source: PipelineTesting/
+    destination: C:\inetpub\wwwroot\MyWebApi
 hooks:
   BeforeInstall:
-    - location: scripts/before-install.ps1
+    - location: scripts\install_dotnet_runtime.ps1
       timeout: 300
+      runas: Administrator
+    - location: scripts\install_iis.ps1
+      timeout: 300
+      runas: Administrator
   AfterInstall:
-    - location: scripts/after-install.ps1
+    - location: scripts\configure_iis.ps1
       timeout: 300
-  ApplicationStart:
-    - location: scripts/application-start.ps1
-      timeout: 300
+      runas: Administrator
